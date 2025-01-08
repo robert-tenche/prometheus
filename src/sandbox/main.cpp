@@ -1,9 +1,8 @@
-#include <iostream>
+#include <Prometheus.hpp>
+
+using namespace Prometheus::C;
 
 int main()
 {
-
-  std::cout << "Hello Woadsrld!" << std::endl;
-
   return 0;
 }

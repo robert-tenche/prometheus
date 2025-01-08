@@ -5,7 +5,7 @@
   "tasks": [
     {
       "label": "build",
-      "command": "build.bat"
+      "windows": { "command": "build_windows.bat" }
     }
   ]
 }
