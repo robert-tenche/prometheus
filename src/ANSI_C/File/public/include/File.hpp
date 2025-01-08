@@ -5,10 +5,10 @@ namespace Prometheus { namespace C {
   class File
   {
   protected:
-    File(const std::string& Path);
+    File(const std::string& Name);
 
   protected:
-    std::string m_AbsolutePath;
+    std::filesystem::path m_AbsolutePath;
   };
 
 } /* namespace C */ } /* namespace Prometheus */

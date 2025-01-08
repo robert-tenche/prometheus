@@ -2,7 +2,8 @@
 
 namespace Prometheus { namespace C {
 
-  File::File(const std::string& Path)
+  File::File(const std::string& Name)
+    : m_AbsolutePath(std::filesystem::absolute(Name))
   {
   }
 

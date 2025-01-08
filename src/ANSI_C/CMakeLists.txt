@@ -3,6 +3,8 @@ set(PROMETHEUS_ROOT
 )
 
 add_subdirectory(File)
+add_subdirectory(FileHeader)
+add_subdirectory(FileSource)
 
 file(GLOB PROMETHEUS_SOURCES_PUBLIC ${PROMETHEUS_ROOT}/public/src/*.cpp)
 file(GLOB PROMETHEUS_HEADERS_PUBLIC ${PROMETHEUS_ROOT}/public/include/*.hpp)
