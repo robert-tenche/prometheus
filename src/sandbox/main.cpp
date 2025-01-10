@@ -9,7 +9,6 @@ public:
 
   void Content()
   {
-    std::cout << "hello world" << std::endl;
   }
 
 };
@@ -19,6 +18,7 @@ int main()
   std::string PathPrefix = "./generated/";
 
   StdTypesH Std_TypesH(PathPrefix); Std_TypesH.Generate();
+
 
   return 0;
 }

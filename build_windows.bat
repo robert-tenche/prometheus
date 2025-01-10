@@ -4,8 +4,5 @@ cmake -S . -B _cmake_build -G "Unix Makefiles" -D PROMETHEUS_COMPILER=clang++ -D
 
 if %ERRORLEVEL% NEQ 0 exit
 
-cd _cmake_build
+cmake --build _cmake_build --parallel 8
 
-make
-
-cd ..

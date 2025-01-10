@@ -5,7 +5,10 @@
   "tasks": [
     {
       "label": "build",
-      "windows": { "command": "build_windows.bat" }
+      "windows": {
+        "command": "build_windows.bat"
+      },
+      "problemMatcher": ["$gcc"]
     }
   ]
 }

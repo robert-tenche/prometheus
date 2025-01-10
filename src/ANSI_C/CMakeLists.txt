@@ -6,11 +6,20 @@ add_subdirectory(File)
 add_subdirectory(FileHeader)
 add_subdirectory(FileSource)
 
-file(GLOB PROMETHEUS_SOURCES_PUBLIC ${PROMETHEUS_ROOT}/public/src/*.cpp)
+file(GLOB PROMETHEUS_SOURCES_PRIVATE ${PROMETHEUS_ROOT}/private/src/*.cpp)
+file(GLOB PROMETHEUS_HEADERS_PRIVATE ${PROMETHEUS_ROOT}/private/include/*.hpp)
+set(PROMETHEUS_INCLUDEDIR_PRIVATE ${PROMETHEUS_ROOT}/private/include)
+
 file(GLOB PROMETHEUS_HEADERS_PUBLIC ${PROMETHEUS_ROOT}/public/include/*.hpp)
+file(GLOB PROMETHEUS_SOURCES_PUBLIC ${PROMETHEUS_ROOT}/public/src/*.cpp)
 set(PROMETHEUS_INCLUDEDIR_PUBLIC ${PROMETHEUS_ROOT}/public/include)
 
 add_library(prometheus STATIC
+  ${PROMETHEUS_SOURCES_PRIVATE}
+  ${PROMETHEUS_HEADERS_PRIVATE}
+  ${PROMETHEUS_HEADERS_PUBLIC}
+  ${PROMETHEUS_SOURCES_PUBLIC}
+
   ${FILE_SOURCES}
   ${FILE_HEADERS}
   ${FILEHEADER_SOURCES}
@@ -22,8 +31,12 @@ add_library(prometheus STATIC
 target_precompile_headers(prometheus REUSE_FROM pch)
 
 target_include_directories(prometheus
+  PRIVATE ${PROMETHEUS_INCLUDEDIR_PRIVATE}
+
   PUBLIC ${FILE_INCLUDEDIR_PUBLIC}
   PUBLIC ${FILEHEADER_INCLUDEDIR_PUBLIC}
   PUBLIC ${FILESOURCE_INCLUDEDIR_PUBLIC}
   PUBLIC ${PROMETHEUS_INCLUDEDIR_PUBLIC}
 )
+
+target_link_libraries(prometheus pthread)

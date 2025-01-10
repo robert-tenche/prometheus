@@ -1,4 +1,5 @@
 #include <FileHeader.hpp>
+#include <PrometheusPrivate.hpp>
 
 namespace Prometheus { namespace C {
 
@@ -11,7 +12,7 @@ namespace Prometheus { namespace C {
   {
     std::string path = m_AbsolutePath.string();
 
-    std::cout << path << std::endl;
+    PrometheusPrivate::GetOutputStreamContext();
 
     Content();
   }
