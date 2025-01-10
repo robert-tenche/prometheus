@@ -19,6 +19,5 @@ int main()
 
   StdTypesH Std_TypesH(PathPrefix); Std_TypesH.Generate();
 
-
   return 0;
 }

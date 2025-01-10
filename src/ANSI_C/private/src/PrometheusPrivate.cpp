@@ -23,6 +23,23 @@ namespace Prometheus { namespace C {
     myMutex.unlock();
   }
 
+  void PrometheusPrivate::ContextPop()
+  {
+    std::thread::id threadId = std::this_thread::get_id();
+
+    // wait if already locked, unordered_map is not thread safe
+    while(myMutex.try_lock() == false)
+    {
+    }
+
+    if (contextStack[threadId].empty() == false)
+    {
+      contextStack[threadId].pop_back();
+    }
+
+    myMutex.unlock();
+  }
+
 
   const std::ofstream& PrometheusPrivate::GetOutputStreamContext()
   {

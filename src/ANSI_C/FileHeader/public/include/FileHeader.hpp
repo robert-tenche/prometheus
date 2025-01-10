@@ -7,9 +7,10 @@ namespace Prometheus { namespace C {
   class FileHeader : public File
   {
   public:
-    FileHeader(const std::string& Name);
-
     void Generate();
+
+  protected:
+    FileHeader(const std::string& Name);
 
     virtual void Content() = 0;
   };

@@ -12,9 +12,25 @@ namespace Prometheus { namespace C {
   {
     std::string path = m_AbsolutePath.string();
 
-    PrometheusPrivate::GetOutputStreamContext();
+    std::ofstream OutputStream(path);
+
+    if (OutputStream.is_open())
+    {
+      std::cout << path << std::endl;
+    }
+
+    PrometheusPrivate::ContextPush(*this, OutputStream);
+
+    OutputStream << "test" << std::endl;
+
+    std::cout << path << std::endl;
 
     Content();
+
+    PrometheusPrivate::ContextPop();
+
+
+    OutputStream.close();
   }
 
 

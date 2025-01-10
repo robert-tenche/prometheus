@@ -8,6 +8,7 @@ class PrometheusPrivate
 {
 public:
   static void ContextPush(const File& FileContext, const std::ofstream& OutputStreamContext);
+  static void ContextPop();
 
   static const std::ofstream& GetOutputStreamContext();
 
