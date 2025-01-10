@@ -4,16 +4,16 @@
 
 namespace Prometheus { namespace C {
 
-class PrometheusPrivate
-{
-public:
-  static void ContextPush(const File& FileContext, const std::ofstream& OutputStreamContext);
-  static void ContextPop();
+  class PrometheusPrivate
+  {
+  public:
+    static void ContextPush(const File& FileContext, const std::ofstream& OutputStreamContext);
+    static void ContextPop();
 
-  static const std::ofstream& GetOutputStreamContext();
+    static const std::ofstream& GetOutputStreamContext();
 
-private:
-  PrometheusPrivate() {}
-};
+  private:
+    PrometheusPrivate() {}
+  };
 
 } /* namespace C */ } /* namespace Prometheus */
