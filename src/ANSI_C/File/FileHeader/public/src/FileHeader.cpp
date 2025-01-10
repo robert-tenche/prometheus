@@ -14,21 +14,16 @@ namespace Prometheus { namespace C {
 
     std::ofstream OutputStream(path);
 
-    if (OutputStream.is_open())
+    if (OutputStream.is_open() == false)
     {
-      std::cout << path << std::endl;
+      throw "handle assert";
     }
 
     PrometheusPrivate::ContextPush(*this, OutputStream);
 
-    OutputStream << "test" << std::endl;
-
-    std::cout << path << std::endl;
-
     Content();
 
     PrometheusPrivate::ContextPop();
-
 
     OutputStream.close();
   }
