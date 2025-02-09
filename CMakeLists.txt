@@ -8,7 +8,7 @@ else()
 endif()
 
 # Language
-if (${PROMETHEUS_LANG} STREQUAL "ANSI_C")
+if (${PROMETHEUS_LANG} STREQUAL "C89")
   # ok
 else()
   message(FATAL_ERROR "PROMETHEUS_LANG='${PROMETHEUS_LANG}' is not supported!")
